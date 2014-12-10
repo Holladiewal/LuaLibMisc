@@ -9,9 +9,10 @@ function clearTable()
    mon.clear()
 end
                
-function setTable(name, func, xmin, xmax, ymin, ymax)
+function setTable(name, func, args, xmin, xmax, ymin, ymax)
    button[name] = {}
    button[name]["func"] = func
+   button[name]["args"] = args
    button[name]["active"] = false
    button[name]["xmin"] = xmin
    button[name]["ymin"] = ymin
@@ -76,7 +77,7 @@ function checkxy(x, y)
    for name, data in pairs(button) do
       if y>=data["ymin"] and  y <= data["ymax"] then
          if x>=data["xmin"] and x<= data["xmax"] then
-            data["func"]()
+            data["func"](data[args])
             return true
             --data["active"] = not data["active"]
             --print(name)
