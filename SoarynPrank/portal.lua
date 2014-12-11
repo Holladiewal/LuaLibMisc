@@ -8,7 +8,7 @@ local names = {}
 local turtles = {}
 local remove = false
 local prankActive = true
-local prankNames = {"Soaryn"} --Who you want to prank
+local prankNames = {"Soaryn", "Lord_of_2012", "Fireball1725", "Slowpoke101", } --Who you want to prank
 local PlayersInRange = {}
 local sens = peripheral.wrap("right")
 local numberOfBooks = 0
@@ -169,13 +169,15 @@ fillTurtles()
 fillTable()
 checkNames()
 
+
+
 math.randomseed(os.time)
 math.random(); math.random(); math.random(); math.random()
 while true do
-   PlayersInRange = sens.getPlayerNames()
+   PlayersInRange = sens.getPlayers()
    for i = 1, #PlayersInRange, 1 do 
 	for j = 1, #prankNames, 1 do
-	if PlayersInRange[i] = prankNames[j] then PrankedInRange = true  
+	if PlayersInRange[i]["name"] = prankNames[j] then PrankedInRange = true  
 	end--if
    end--for
    end--for
