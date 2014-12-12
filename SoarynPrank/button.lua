@@ -77,7 +77,7 @@ function checkxy(x, y)
    for name, data in pairs(button) do
       if y>=data["ymin"] and  y <= data["ymax"] then
          if x>=data["xmin"] and x<= data["xmax"] then
-            data["func"](data[args])
+            data["func"](data["args"])
             return true
             --data["active"] = not data["active"]
             --print(name)

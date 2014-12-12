@@ -117,7 +117,7 @@ function openPortal(info)
 	--   print(names[tonumber(turt)][tonumber(slot)])
    button.toggleButton(names[tonumber(turt)][tonumber(slot)])
    print(names[tonumber(turt)][tonumber(slot)])
-   if PrankedInRange = true then
+   if PrankedInRange == true then
 	slot = tonumber(math.floor(math.random()*(numberOfBooks-1)+1+0.5))
    end--if
    data = "books"..tostring(slot)
@@ -177,7 +177,7 @@ while true do
    PlayersInRange = sens.getPlayers()
    for i = 1, #PlayersInRange, 1 do 
 	for j = 1, #prankNames, 1 do
-	if PlayersInRange[i]["name"] = prankNames[j] then PrankedInRange = true  
+	if PlayersInRange[i]["name"] == prankNames[j] then PrankedInRange = true  
 	end--if
    end--for
    end--for
