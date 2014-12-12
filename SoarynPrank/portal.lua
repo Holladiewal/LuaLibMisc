@@ -8,7 +8,7 @@ local names = {}
 local turtles = {}
 local remove = false
 local prankActive = true
-local prankNames = {"Soaryn", "Lord_of_2012", "Fireball1725", "Slowpoke101" } --Who you want to prank
+local prankNames = {"Soaryn", "Fireball1725", "Slowpoke101", "Lord_of_2012" } --Who you want to prank
 local PlayersInRange = {}
 local sens = peripheral.wrap("right")
 local numberOfBooks = 0
@@ -16,7 +16,7 @@ local PrankedInRange = false
 
 
 function fillTurtles()
-   turtles[1] = 47
+   turtles[1] = 0
 --   turtles[2] = 114
 --   turtles[3] = 117
 end
@@ -117,13 +117,14 @@ function openPortal(info)
 	--   print(names[tonumber(turt)][tonumber(slot)])
    button.toggleButton(names[tonumber(turt)][tonumber(slot)])
    print(names[tonumber(turt)][tonumber(slot)])
-   if PrankedInRange == true then
+   realslot = slot
+      if PrankedInRange == true then
 	slot = tonumber(math.floor(math.random()*(numberOfBooks-1)+1+0.5))
    end--if
    data = "books"..tostring(slot)
    rednet.send(tonumber(turt), data)
    rednet.receive()
-   button.toggleButton(names[tonumber(turt)][tonumber(slot)])
+   button.toggleButton(names[tonumber(turt)][tonumber(realslot)])
 end
 
 function checkNames()
@@ -171,7 +172,7 @@ checkNames()
 
 
 
-math.randomseed(os.time)
+math.randomseed(os.time())
 math.random(); math.random(); math.random(); math.random()
 while true do
    PlayersInRange = sens.getPlayers()

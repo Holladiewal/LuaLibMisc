@@ -1,5 +1,5 @@
 local data = {}
-rednet.open("right")
+rednet.open("left")
 p = peripheral.wrap("bottom")
 
 function checkSlots(id)
@@ -9,8 +9,8 @@ function checkSlots(id)
    local slots = p.getAllStacks()
    for i,j in pairs(slots) do
       slot = i
-      name = j["destination"]
---      print(name)
+      name = j["myst_book"]["destination"]
+      print(name)
       data[slot]=name
    end
    rednet.send(id,"done")
@@ -46,7 +46,7 @@ end
 while true do
    local id, msg, dis = rednet.receive()
    local newmsg = string.match(msg, "%a+")
---   print(msg)
+   print(msg)
    if newmsg == "checkSlots" then
      checkSlots(id) 
    elseif newmsg == "getNames" then

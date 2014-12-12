@@ -1,4 +1,4 @@
-local mon = peripheral.wrap("top")
+local mon = peripheral.wrap("left")
 mon.setTextScale(1)
 mon.setTextColor(colors.white)
 local button={}
