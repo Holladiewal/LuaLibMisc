@@ -15,6 +15,8 @@ local numberOfBooks = 0
 local PrankedInRange = false
 
 
+
+
 function fillTurtles()
    turtles[1] = 0
 --   turtles[2] = 114
